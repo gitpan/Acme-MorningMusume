@@ -2,5 +2,13 @@ $Id: Changes 10 2005-04-03 12:13:44Z kentaro $
 
 Revision history for Perl extension Acme::MorningMusume.
 
+0.02  Sat Apr 5 2005
+	- fixed a fatal bug: making some mistakes in spelling of member's name
+	- fixed some erros on documentation
+	- added/removed some accessors of Acme/MorningMusume/Base.pm:
+		* added   : name_ja, name_en, first_name_ja, family_name_ja,
+		            first_name_en, family_name_en
+		* removed : first_name, family_name, pronunciation
+
 0.01  Sat Apr 3 2005
 	- initial release

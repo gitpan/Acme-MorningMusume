@@ -7,7 +7,7 @@ use warnings;
 
 use Carp qw(croak);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my @members = qw(
 	FukudaAsuka
@@ -162,10 +162,10 @@ Returns the members as a list of the L<Acme::MorningMusume::Base> based object r
   #  + class :  sort by class
   #
   # $order can be a one of the values below:
-  #  + something true value  :  sort in ascending order
-  #  + something false value :  sort in descending order
+  #  + something true value  :  sort in descending order
+  #  + something false value :  sort in ascending order
 
-  my @sorted_members = $musume->sort('age', 1); # sort by age in ascending order
+  my @sorted_members = $musume->sort('age', 1); # sort by age in descending order
 
 Returns the members sorted by the I<$type> field.
 
@@ -180,7 +180,7 @@ Returns the members sorted by the I<$type> field.
 
 Returns the members satisfy the given I<$type> condition. I<$operator> must be a one of '==', '>=', '<=', '>', and '<'. This method compares the given I<$type> to the member's one in the order below:
 
-  $type $operator $member_type
+  $number $operator $member_value
 
 =back
 

@@ -7,13 +7,14 @@ use warnings;
 
 use base qw(Acme::MorningMusume::Base);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub info {
 	return (
-		first_name     => '希美',
-		family_name    => '辻',
-		pronunciation  => 'Tsuji Nozomi',
+		first_name_ja  => '希美',
+		family_name_ja => '辻',
+		first_name_en  => 'Nozomi',
+		family_name_en => 'Tsuji',
 		nick           => [qw(のの ののたん)],
 		birthday       => Date::Simple->new('1987-06-17'),
 		blood_type     => 'O',

@@ -9,12 +9,15 @@ use Date::Simple ();
 
 use base qw(Class::Accessor);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 __PACKAGE__->mk_accessors(qw(
-	first_name
-	family_name
-	pronunciation
+	name_ja
+	first_name_ja
+	family_name_ja
+	name_en
+	first_name_en
+	family_name_en
 	nick
 	birthday
 	age
@@ -36,16 +39,18 @@ sub new {
 
 sub images {
 	my ($self, %arg) = @_;
-	return $self->{_ua}->search($self->family_name.$self->first_name, %arg);
+	return $self->{_ua}->search($self->name_ja, %arg);
 }
 
 sub _initialize {
 	my $self = shift;
 	my %info = $self->info;
 
-	$self->{$_}  = $info{$_} for keys %info;
-	$self->{age} = $self->_calculate_age;
-	$self->{_ua} = WWW::Google::Images::Ja->new(
+	$self->{$_}      = $info{$_} for keys %info;
+	$self->{name_ja} = $self->family_name_ja.$self->first_name_ja;
+	$self->{name_en} = $self->first_name_en.' '.$self->family_name_en;
+	$self->{age}     = $self->_calculate_age;
+	$self->{_ua}     = WWW::Google::Images::Ja->new(
 		server => 'images.google.co.jp'
     );
 
@@ -105,7 +110,7 @@ __END__
 
 =head1 NAME
 
-Acme::MorningMusume::Base - A baseclass represents a member of Morning Musume
+Acme::MorningMusume::Base - A baseclass of the class represents each member of Morning Musume
 
 =head1 SYNOPSIS
 
@@ -118,18 +123,22 @@ Acme::MorningMusume::Base - A baseclass represents a member of Morning Musume
   my @members = $musume->members;
 
   for my $member (@member) {
-      my $first_name    = $member->first_name;
-      my $family_name   = $member->family_name;
-      my $pronunciation = $member->pronunciation;
-      my $nick          = $member->nick;          # arrayref
-      my $birthday      = $member->birthday;      # Date::Simple object
-      my $age           = $member->age;
-      my $blood_type    = $member->blood_type;
-      my $hometown      = $member->hometown;
-      my $emoticon      = $member->emoticon;      # arrayref
-      my $class         = $member->class;
-      my $graduate_date = $member->graduate_date; # Date::Simple object
+      my $name_ja        = $member->name_ja;
+      my $first_name_ja  = $member->first_name_ja;
+      my $family_name_ja = $member->family_name_ja;
+	  my $name_en        = $member->name_en;
+	  my $first_name_en  = $member->first_name_en;
+	  my $family_name_en = $member->family_name_en;
+      my $nick           = $member->nick;           # arrayref
+      my $birthday       = $member->birthday;       # Date::Simple object
+      my $age            = $member->age;
+      my $blood_type     = $member->blood_type;
+      my $hometown       = $member->hometown;
+      my $emoticon       = $member->emoticon;       # arrayref
+      my $class          = $member->class;
+      my $graduate_date  = $member->graduate_date;  # Date::Simple object
 
+      my $count;
       my $images = $member->images(limit => 5);
       while (my $image = $images->next) {
           $count++;
@@ -142,7 +151,7 @@ Acme::MorningMusume::Base - A baseclass represents a member of Morning Musume
 
 =head1 DESCRIPTION
 
-Acme::MorningMusume::Base is a baseclass of the class represents each members.
+Acme::MorningMusume::Base is a baseclass of the class represents each member of Morning Musume.
 
 =head1 METHODS
 
@@ -150,7 +159,7 @@ Acme::MorningMusume::Base is a baseclass of the class represents each members.
 
 =over 4
 
-  # %arg can be passed in the same as the WWW::Google::Image:search method
+  # %arg can be passed in the same as the WWW::Google::Image::search method
   my $images = $member->images(limit => 5);
 
 Performs a search for I<$member>'s name using Google, and returns a L<WWW::Google::Images::SearchResult> object. See the documentation of L<WWW::Google::Images> for details.
@@ -159,11 +168,17 @@ Performs a search for I<$member>'s name using Google, and returns a L<WWW::Googl
 
 =head1 ACCESSORS
 
-=head2 first_name
+=head2 name_ja
 
-=head2 family_name
+=head2 first_name_ja
 
-=head2 pronunciation
+=head2 family_name_ja
+
+=head2 name_en
+
+=head2 first_name_en
+
+=head2 family_name_en
 
 =head2 nick
 
