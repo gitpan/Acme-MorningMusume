@@ -1,4 +1,4 @@
-# $Id: MorningMusume.pm 12 2005-04-03 13:02:32Z kentaro $
+# $Id: MorningMusume.pm 16 2005-04-14 12:31:58Z kentaro $
 
 package Acme::MorningMusume;
 
@@ -7,7 +7,7 @@ use warnings;
 
 use Carp qw(croak);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my @members = qw(
 	FukudaAsuka
@@ -124,7 +124,7 @@ Acme::MorningMusume - All about the Japanese pop star "Morning Musume"
 
 =head1 DESCRIPTION
 
-"Morning Musume" is a one of the most famous Japanese pop star consisting of many pretty girls, and known as a group in which group member changes one after another so frequently that people cannot completely tell who is who in the group. Acme::MorningMusume provides an easy method to catch up with Morning Musume.
+"Morning Musume" is one of the most famous Japanese pop star consisting of many pretty girls, and known as a group in which group member changes one after another so frequently that people cannot completely tell who is who in the group. Acme::MorningMusume provides an easy method to catch up with Morning Musume.
 
 =head1 METHODS
 

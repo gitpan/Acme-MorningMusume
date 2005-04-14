@@ -1,4 +1,4 @@
-# $Id: IidaKaori.pm 10 2005-04-03 12:13:44Z kentaro $
+# $Id: IidaKaori.pm 16 2005-04-14 12:31:58Z kentaro $
 
 package Acme::MorningMusume::IidaKaori;
 
@@ -7,7 +7,7 @@ use warnings;
 
 use base qw(Acme::MorningMusume::Base);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub info {
 	return (
@@ -15,7 +15,7 @@ sub info {
 		family_name_ja => '飯田',
 		first_name_en  => 'Kaori',
 		family_name_en => 'Iida',
-		nick           => [qw(かおりん ジェイソン)],
+		nick           => [qw(かおりん ジョンソン)],
 		birthday       => Date::Simple->new('1981-08-08'),
 		blood_type     => 'A',
 		hometown       => '北海道',

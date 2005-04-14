@@ -1,4 +1,4 @@
-# $Id: YaguchiMari.pm 10 2005-04-03 12:13:44Z kentaro $
+# $Id: YaguchiMari.pm 16 2005-04-14 12:31:58Z kentaro $
 
 package Acme::MorningMusume::YaguchiMari;
 
@@ -7,7 +7,7 @@ use warnings;
 
 use base qw(Acme::MorningMusume::Base);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub info {
 	return (
@@ -21,7 +21,7 @@ sub info {
 		hometown       => '神奈川県',
 		emoticon       => ['（～＾◇＾～）', '（～＾◇＾）'],
 		class          => 2,
-		graduate_date  => undef,
+		graduate_date  => Date::Simple->new('2005-04-14'),
 	);
 }
 

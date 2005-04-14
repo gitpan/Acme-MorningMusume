@@ -1,4 +1,4 @@
-# $Id: Base.pm 12 2005-04-03 13:02:32Z kentaro $
+# $Id: Base.pm 14 2005-04-05 14:23:18Z kentaro $
 
 package Acme::MorningMusume::Base;
 

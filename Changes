@@ -1,6 +1,10 @@
-$Id: Changes 10 2005-04-03 12:13:44Z kentaro $
+$Id: Changes 16 2005-04-14 12:31:58Z kentaro $
 
 Revision history for Perl extension Acme::MorningMusume.
+
+0.03  Sat Apr 3 2005
+	- fixed a fatal bug: making a mistake in spelling of Kaori Iida's nick
+	- added the graduate_date property to YaguchiMari.pm with her pulling out of Morning Musume.
 
 0.02  Sat Apr 5 2005
 	- fixed a fatal bug: making some mistakes in spelling of member's name

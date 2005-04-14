@@ -1,4 +1,4 @@
-# $Id: AbeNatsumi.pm 10 2005-04-03 12:13:44Z kentaro $
+# $Id: AbeNatsumi.pm 14 2005-04-05 14:23:18Z kentaro $
 
 package Acme::MorningMusume::AbeNatsumi;
 
