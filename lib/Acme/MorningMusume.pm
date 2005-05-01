@@ -1,4 +1,4 @@
-# $Id: MorningMusume.pm 16 2005-04-14 12:31:58Z kentaro $
+# $Id: MorningMusume.pm 21 2005-05-01 14:35:05Z kentaro $
 
 package Acme::MorningMusume;
 
@@ -7,7 +7,7 @@ use warnings;
 
 use Carp qw(croak);
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 my @members = qw(
 	FukudaAsuka

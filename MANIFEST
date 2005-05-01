@@ -26,5 +26,6 @@ lib/Acme/MorningMusume/KameiEri.pm
 lib/Acme/MorningMusume/TanakaReina.pm
 lib/Acme/MorningMusume/MichishigeSayumi.pm
 lib/Acme/MorningMusume/FujimotoMiki.pm
+lib/Acme/MorningMusume/KusumiKoharu.pm
 
 META.yml                                 Module meta-data (added by MakeMaker)

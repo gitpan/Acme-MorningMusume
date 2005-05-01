@@ -1,6 +1,9 @@
-$Id: Changes 16 2005-04-14 12:31:58Z kentaro $
+$Id: Changes 21 2005-05-01 14:35:05Z kentaro $
 
 Revision history for Perl extension Acme::MorningMusume.
+
+0.04  Sun May 1 2005
+	- added KusumiKoharu.pm with her joining Morning Musume. But her detailed profile isn't known yet, I'll update KusumiKoharu.pm accordingly.
 
 0.03  Sat Apr 3 2005
 	- fixed a fatal bug: making a mistake in spelling of Kaori Iida's nick

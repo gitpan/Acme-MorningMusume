@@ -1,4 +1,4 @@
-# $Id: Base.pm 14 2005-04-05 14:23:18Z kentaro $
+# $Id: Base.pm 22 2005-05-01 14:36:50Z kentaro $
 
 package Acme::MorningMusume::Base;
 
@@ -9,7 +9,7 @@ use Date::Simple ();
 
 use base qw(Class::Accessor);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 __PACKAGE__->mk_accessors(qw(
 	name_ja
@@ -126,9 +126,9 @@ Acme::MorningMusume::Base - A baseclass of the class represents each member of M
       my $name_ja        = $member->name_ja;
       my $first_name_ja  = $member->first_name_ja;
       my $family_name_ja = $member->family_name_ja;
-	  my $name_en        = $member->name_en;
-	  my $first_name_en  = $member->first_name_en;
-	  my $family_name_en = $member->family_name_en;
+      my $name_en        = $member->name_en;
+      my $first_name_en  = $member->first_name_en;
+      my $family_name_en = $member->family_name_en;
       my $nick           = $member->nick;           # arrayref
       my $birthday       = $member->birthday;       # Date::Simple object
       my $age            = $member->age;
