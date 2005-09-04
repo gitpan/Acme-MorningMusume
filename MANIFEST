@@ -3,6 +3,8 @@ Makefile.PL
 MANIFEST
 README
 t/00_compile.t
+t/01_members.t
+t/02_musume.t
 lib/Acme/MorningMusume.pm
 lib/Acme/MorningMusume/Base.pm
 lib/Acme/MorningMusume/FukudaAsuka.pm

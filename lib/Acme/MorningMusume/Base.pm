@@ -1,4 +1,4 @@
-# $Id: Base.pm 22 2005-05-01 14:36:50Z kentaro $
+# $Id: Base.pm 8 2005-09-04 02:44:38Z kentaro $
 
 package Acme::MorningMusume::Base;
 
@@ -9,67 +9,68 @@ use Date::Simple ();
 
 use base qw(Class::Accessor);
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 __PACKAGE__->mk_accessors(qw(
-	name_ja
-	first_name_ja
-	family_name_ja
-	name_en
-	first_name_en
-	family_name_en
-	nick
-	birthday
-	age
-	blood_type
-	hometown
-	emoticon
-	class
-	graduate_date
+    name_ja
+    first_name_ja
+    family_name_ja
+    name_en
+    first_name_en
+    family_name_en
+    nick
+    birthday
+    age
+    blood_type
+    hometown
+    emoticon
+    class
+    graduate_date
 ));
 
 sub new {
-	my $class = shift;
-	my $self  = bless {}, $class;
+    my $class = shift;
+    my $self  = bless {}, $class;
 
-	$self->_initialize;
+    $self->_initialize;
 
-	return $self;
+    return $self;
 }
 
 sub images {
-	my ($self, %arg) = @_;
-	return $self->{_ua}->search($self->name_ja, %arg);
+    my ($self, %arg) = @_;
+    return $self->{_ua}->search($self->name_ja, %arg);
 }
 
 sub _initialize {
-	my $self = shift;
-	my %info = $self->info;
+    my $self = shift;
+    my %info = $self->info;
 
-	$self->{$_}      = $info{$_} for keys %info;
-	$self->{name_ja} = $self->family_name_ja.$self->first_name_ja;
-	$self->{name_en} = $self->first_name_en.' '.$self->family_name_en;
-	$self->{age}     = $self->_calculate_age;
-	$self->{_ua}     = WWW::Google::Images::Ja->new(
-		server => 'images.google.co.jp'
+    $self->{$_}      = $info{$_} for keys %info;
+    $self->{name_ja} = $self->family_name_ja.$self->first_name_ja;
+    $self->{name_en} = $self->first_name_en.' '.$self->family_name_en;
+    $self->{age}     = $self->_calculate_age;
+    $self->{_ua}     = WWW::Google::Images::Ja->new(
+        undef,
+        server => 'images.google.co.jp'
     );
 
-	return 1;
+    return 1;
 }
 
 sub _calculate_age {
-	my $self  = shift;
-	my $today = Date::Simple::today;
+    my $self  = shift;
+    my $today = Date::Simple::today;
 
-	if (($today->month - $self->birthday->month) >= 0) {
-		if (($today->day - $self->birthday->day  ) >= 0) {
-			return $today->year - $self->birthday->year;
-		} else {
-			return ($today->year - $self->birthday->year) - 1;
-		}
-	} else {
-		return ($today->year - $self->birthday->year) - 1;
-	}
+    if (($today->month - $self->birthday->month) >= 0) {
+        if (($today->day - $self->birthday->day  ) >= 0) {
+            return $today->year - $self->birthday->year;
+        } else {
+            return ($today->year - $self->birthday->year) - 1;
+        }
+    } else {
+        return ($today->year - $self->birthday->year) - 1;
+    }
 }
 
 # wrapper for WWW::Google::Images to adjust a utf-8 encoded query
@@ -78,30 +79,30 @@ package WWW::Google::Images::Ja;
 use base qw(WWW::Google::Images);
 
 sub search {
-	my ($self, $query, %arg) = @_;
+    my ($self, $query, %arg) = @_;
 
-	$arg{limit} = 10 unless defined $arg{limit};
-	$self->{_agent}->get($self->{_server});
-	$self->{_agent}->submit_form(
-		form_number => 1,
-		fields      => {
-			ie => 'UTF-8',
-			hl => 'ja',
-			q  => $query,
-		}
-	);
+    $arg{limit} = 10 unless defined $arg{limit};
+    $self->{_agent}->get($self->{_server});
+    $self->{_agent}->submit_form(
+        form_number => 1,
+        fields      => {
+            ie => 'UTF-8',
+            hl => 'ja',
+            q  => $query,
+        }
+    );
 
-	my @images;
-	my $page = 1;
+    my @images;
+    my $page = 1;
 
-	LOOP: {
-		do {
-			push(@images, $self->_extract_images(($arg{limit} ? $arg{limit} - @images : 0), %arg));
-			last if $arg{limit} && @images == $arg{limit};
-		} while ($self->_next_page(++$page));
-	}
+    LOOP: {
+        do {
+            push(@images, $self->_extract_images(($arg{limit} ? $arg{limit} - @images : 0), %arg));
+            last if $arg{limit} && @images == $arg{limit};
+        } while ($self->_next_page(++$page));
+    }
 
-	return WWW::Google::Images::SearchResult->new($self->{_agent}, @images);
+    return WWW::Google::Images::SearchResult->new($self->{_agent}, @images);
 }
 
 1;
@@ -122,7 +123,7 @@ Acme::MorningMusume::Base - A baseclass of the class represents each member of M
   # Acme::MorningMusume::Base based objects
   my @members = $musume->members;
 
-  for my $member (@member) {
+  for my $member (@members) {
       my $name_ja        = $member->name_ja;
       my $first_name_ja  = $member->first_name_ja;
       my $family_name_ja = $member->family_name_ja;
@@ -208,7 +209,7 @@ Performs a search for I<$member>'s name using Google, and returns a L<WWW::Googl
 
 =head1 AUTHOR
 
-Kentaro Kuribayashi, E<lt>kentarok@gmail.comE<gt>
+Kentaro Kuribayashi, E<lt>kentaro@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

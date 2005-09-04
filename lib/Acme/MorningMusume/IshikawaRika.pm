@@ -1,4 +1,4 @@
-# $Id: IshikawaRika.pm 14 2005-04-05 14:23:18Z kentaro $
+# $Id: IshikawaRika.pm 8 2005-09-04 02:44:38Z kentaro $
 
 package Acme::MorningMusume::IshikawaRika;
 
@@ -7,7 +7,7 @@ use warnings;
 
 use base qw(Acme::MorningMusume::Base);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub info {
 	return (
@@ -21,7 +21,7 @@ sub info {
 		hometown       => '神奈川県',
 		emoticon       => ['（ ＾▽＾）'],
 		class          => 4,
-		graduate_date  => undef,
+		graduate_date  => Date::Simple->new('2005-05-07'),
 	);
 }
 

@@ -1,4 +1,4 @@
-# $Id: 00_compile.t 9 2005-04-03 11:47:44Z kentaro $
+# $Id: 00_compile.t 8 2005-09-04 02:44:38Z kentaro $
 
 use strict;
 use Test::More tests => 1;

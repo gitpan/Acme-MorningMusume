@@ -1,4 +1,4 @@
-# $Id: GotohMaki.pm 14 2005-04-05 14:23:18Z kentaro $
+# $Id: GotohMaki.pm 2 2005-09-03 22:17:32Z kentaro $
 
 package Acme::MorningMusume::GotohMaki;
 

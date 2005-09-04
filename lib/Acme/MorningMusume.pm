@@ -1,100 +1,121 @@
-# $Id: MorningMusume.pm 21 2005-05-01 14:35:05Z kentaro $
+# $Id: MorningMusume.pm 10 2005-09-04 02:47:29Z kentaro $
 
 package Acme::MorningMusume;
 
 use strict;
 use warnings;
 
-use Carp qw(croak);
+use Carp  qw(croak);
+use Date::Simple ();
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 my @members = qw(
-	FukudaAsuka
-	NakazawaYuko
-	IidaKaori
-	AbeNatsumi
-	IshiguroAya
-	IchiiSayaka
-	YaguchiMari
-	YasudaKei
-	GotohMaki
-	IshikawaRika
-	YoshizawaHitomi
-	TsujiNozomi
-	KagoAi
-	TakahashiAi
-	KonnoAsami
-	OgawaMakoto
-	NiigakiRisa
-	KameiEri
-	TanakaReina
-	MichishigeSayumi
-	FujimotoMiki
+    FukudaAsuka
+    NakazawaYuko
+    IidaKaori
+    AbeNatsumi
+    IshiguroAya
+    IchiiSayaka
+    YaguchiMari
+    YasudaKei
+    GotohMaki
+    IshikawaRika
+    YoshizawaHitomi
+    TsujiNozomi
+    KagoAi
+    TakahashiAi
+    KonnoAsami
+    OgawaMakoto
+    NiigakiRisa
+    KameiEri
+    TanakaReina
+    MichishigeSayumi
+    FujimotoMiki
+    KusumiKoharu
 );
 
+my @date_joined = map { Date::Simple->new($_) } qw(
+    1997-09-07
+    1998-05-03
+    1999-08-04
+    2000-04-16
+    2001-08-26
+    2003-01-19
+    2005-05-01
+);
+unshift @date_joined, undef;
+
 sub new {
-	my $class = shift;
-	my $self  = bless {members => []}, $class;
+    my $class = shift;
+    my $self  = bless {members => []}, $class;
 
-	$self->_initialize;
+    $self->_initialize;
 
-	return $self;
+    return $self;
 }
 
 sub members {
-	my ($self, $type, @members) = @_;
-	@members = @{$self->{members}} unless @members;
+    my ($self, $type, @members) = @_;
+    @members = @{$self->{members}} unless @members;
 
-	return @members unless $type;
+    return @members unless $type;
 
-	if ($type eq 'active') {
-		return grep {!$_->graduate_date} @members;
-	} elsif ($type eq 'graduate') {
-		return grep {$_->graduate_date}  @members;
-	}
+    if ($type eq 'active') {
+        return grep {!$_->graduate_date} @members;
+    }
+    elsif ($type eq 'graduate') {
+        return grep {$_->graduate_date}  @members;
+    }
+    elsif ($type->isa('Date::Simple')) {
+        return grep {
+            $date_joined[$_->class] <= $type and
+            (!$_->graduate_date or $type <= $_->graduate_date)
+        } @members;
+    }
 }
 
 sub sort {
-	my ($self, $type, $order, @members) = @_;
-	@members = $self->members unless @members;
+    my ($self, $type, $order, @members) = @_;
+    @members = $self->members unless @members;
 
-	# order by desc if $order is true
-	if ($order) {
-		return sort {$b->$type <=> $a->$type} @members;
-	} else {
-		return sort {$a->$type <=> $b->$type} @members;
-	}
+    # order by desc if $order is true
+    if ($order) {
+        return sort {$b->$type <=> $a->$type} @members;
+    }
+    else {
+        return sort {$a->$type <=> $b->$type} @members;
+    }
 }
 
 sub select {
-	my ($self, $type, $number, $operator, @members) = @_;
+    my ($self, $type, $number, $operator, @members) = @_;
 
-	$self->_die('invalid operator was passed in')
-		unless grep {$operator eq $_} qw(== >= <= > <);
+    $self->_die('invalid operator was passed in')
+        unless grep {$operator eq $_} qw(== >= <= > <);
 
-	@members = $self->members unless @members;
-	my $compare = eval "(sub { \$number $operator \$_[0] })";
+    @members = $self->members unless @members;
+    my $compare = eval "(sub { \$number $operator \$_[0] })";
 
-	return grep { $compare->($_->$type) } @members;
+    return grep { $compare->($_->$type) } @members;
 }
 
 sub _initialize {
-	my $self = shift;
+    my $self = shift;
 
-	for my $member (@members) {
-		my $module_name = 'Acme::MorningMusume::'.$member;
+    for my $member (@members) {
+        my $module_name = 'Acme::MorningMusume::'.$member;
 
-		eval qq|require $module_name;|;
-		push @{$self->{members}}, $module_name->new;
-	}
+        eval qq|require $module_name;|;
+        push @{$self->{members}}, $module_name->new;
+    }
 
-	return 1;
+    return 1;
 }
 
 sub _die {
-	my ($self, $message) = @_;
-	Carp::croak($message);
+    my ($self, $message) = @_;
+    Carp::croak($message);
 }
 
 1;
@@ -112,15 +133,16 @@ Acme::MorningMusume - All about the Japanese pop star "Morning Musume"
   my $musume = Acme::MorningMusume->new;
 
   # retrieve the members on their activities
-  my @members           = $musume->members;            # retrieve all
-  my @active_members    = $musume->members('active');
-  my @graduate_members  = $musume->members('graduate');
+  my @members              = $musume->members;             # retrieve all
+  my @active_members       = $musume->members('active');
+  my @graduate_members     = $musume->members('graduate');
+  my @at_some_time_members = $musume->members(Date::Simple->new('2001-01-01'));
 
   # retrieve the members under some conditions
-  my @sorted_by_age     = $musume->sort('age', 1);
-  my @sorted_by_class   = $musume->sort('class', 1);
-  my @selected_by_age   = $musume->select('age', 18, '>=');
-  my @selected_by_class = $musume->select('class', 5, '==');
+  my @sorted_by_age        = $musume->sort('age', 1);
+  my @sorted_by_class      = $musume->sort('class', 1);
+  my @selected_by_age      = $musume->select('age', 18, '>=');
+  my @selected_by_class    = $musume->select('class', 5, '==');
 
 =head1 DESCRIPTION
 
@@ -142,10 +164,11 @@ Creates and returns a new Acme::MorningMusume object.
 
 =over 4
 
-  # $type can be a one of the values below:
-  #  + active   :  active members
-  #  + graduate :  graduate members
-  #  + undef    :  all members
+  # $type can be one of the values below:
+  #  + active              : active members
+  #  + graduate            : graduate members
+  #  + Date::Simple object : members at the time passed in
+  #  + undef               : all members
 
   my @members = $musume->members('active');
 
@@ -157,7 +180,7 @@ Returns the members as a list of the L<Acme::MorningMusume::Base> based object r
 
 =over 4
 
-  # $type can be a one of the values below:
+  # $type can be one of the values below:
   #  + age   :  sort by age
   #  + class :  sort by class
   #
@@ -175,7 +198,7 @@ Returns the members sorted by the I<$type> field.
 
 =over 4
 
-  # $type can be a one of the same values above:
+  # $type can be one of the same values above:
   my @selected_members = $musume->select('age', 18, '>=');
 
 Returns the members satisfy the given I<$type> condition. I<$operator> must be a one of '==', '>=', '<=', '>', and '<'. This method compares the given I<$type> to the member's one in the order below:
@@ -192,13 +215,17 @@ Returns the members satisfy the given I<$type> condition. I<$operator> must be a
 
 L<http://www.helloproject.com/>
 
+=item * Morning Musume - Wikipedia
+
+L<http://en.wikipedia.org/wiki/Morning_Musume>
+
 =item * L<Acme::MorningMusume::Base>
 
 =back
 
 =head1 AUTHOR
 
-Kentaro Kuribayashi, E<lt>kentarok@gmail.comE<gt>
+Kentaro Kuribayashi, E<lt>kentaro@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

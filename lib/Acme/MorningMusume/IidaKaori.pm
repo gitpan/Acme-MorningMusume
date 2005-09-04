@@ -1,4 +1,4 @@
-# $Id: IidaKaori.pm 16 2005-04-14 12:31:58Z kentaro $
+# $Id: IidaKaori.pm 2 2005-09-03 22:17:32Z kentaro $
 
 package Acme::MorningMusume::IidaKaori;
 
