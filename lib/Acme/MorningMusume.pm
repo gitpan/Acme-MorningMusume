@@ -1,5 +1,3 @@
-# $Id: MorningMusume.pm 10 2005-09-04 02:47:29Z kentaro $
-
 package Acme::MorningMusume;
 
 use strict;
@@ -8,7 +6,7 @@ use warnings;
 use Carp  qw(croak);
 use Date::Simple ();
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 my @members = qw(
     FukudaAsuka
@@ -121,10 +119,10 @@ sub _die {
 1;
 
 __END__
-
+q
 =head1 NAME
 
-Acme::MorningMusume - All about the Japanese pop star "Morning Musume"
+Acme::MorningMusume - All about Japanese pop star "Morning Musume"
 
 =head1 SYNOPSIS
 
@@ -146,7 +144,11 @@ Acme::MorningMusume - All about the Japanese pop star "Morning Musume"
 
 =head1 DESCRIPTION
 
-"Morning Musume" is one of the most famous Japanese pop star consisting of many pretty girls, and known as a group in which group member changes one after another so frequently that people cannot completely tell who is who in the group. Acme::MorningMusume provides an easy method to catch up with Morning Musume.
+"Morning Musume" is one of highly famous Japanese pop stars.
+
+It consists of many pretty girls and has been known as a group which members change one after another so frequently that people can't completely tell who is who in the group.
+
+This module, Acme::MorningMusume, provides an easy method to catch up with Morning Musume.
 
 =head1 METHODS
 
@@ -229,7 +231,7 @@ Kentaro Kuribayashi, E<lt>kentaro@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005 by Kentaro Kuribayashi
+Copyright (C) 2005, 2006 by Kentaro Kuribayashi
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

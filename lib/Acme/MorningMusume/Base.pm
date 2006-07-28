@@ -1,15 +1,11 @@
-# $Id: Base.pm 8 2005-09-04 02:44:38Z kentaro $
-
 package Acme::MorningMusume::Base;
 
 use strict;
 use warnings;
-
 use Date::Simple ();
-
 use base qw(Class::Accessor);
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 __PACKAGE__->mk_accessors(qw(
     name_ja
@@ -213,7 +209,7 @@ Kentaro Kuribayashi, E<lt>kentaro@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005 by Kentaro Kuribayashi
+Copyright (C) 2005, 2006 by Kentaro Kuribayashi
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
