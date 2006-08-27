@@ -1,7 +1,10 @@
 Revision history for Perl extension Acme::MorningMusume.
 
+0.07  Mon Aug 28 2006
+    - updated OgawaMakoto.pm for her graduation on Aug 27 2006
+
 0.06  Sat Jul 29 2006
-    - updated KonnoAsami.pm for her graguation
+    - updated KonnoAsami.pm for her graduation
 
 0.05  Sat Sep 4 2005
     - fixed a bug not to load KusumiKoharu.pm.

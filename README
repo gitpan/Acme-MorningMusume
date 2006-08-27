@@ -1,13 +1,16 @@
-Acme-MorningMusume version 0.06
+Acme-MorningMusume version 0.07
 ===============================
 
 DESCRIPTION
 
 "Morning Musume" is one of highly famous Japanese pop stars.
 
-It consists of many pretty girls and has been known as a group which members change one after another so frequently that people can't completely tell who is who in the group.
+It consists of many pretty girls and has been known as a group which
+members change one after another so frequently that people can't
+completely tell who is who in the group.
 
-This module, Acme::MorningMusume, provides an easy method to catch up with Morning Musume.
+This module, Acme::MorningMusume, provides an easy method to catch up
+with Morning Musume.
 
 INSTALLATION
 
@@ -30,4 +33,5 @@ COPYRIGHT AND LICENCE
 
 Copyright (C) 2005, 2006 by Kentaro Kuribayashi, <kentaro@cpan.org>
 
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

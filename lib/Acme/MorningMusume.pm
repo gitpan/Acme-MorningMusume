@@ -6,7 +6,7 @@ use warnings;
 use Carp  qw(croak);
 use Date::Simple ();
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 my @members = qw(
     FukudaAsuka
