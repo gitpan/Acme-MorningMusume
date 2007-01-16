@@ -1,5 +1,11 @@
 Revision history for Perl extension Acme::MorningMusume.
 
+0.08  Tue Jan 16 2007
+    - added MitsuiAika.pm who joined into Morning Musume on Dec 10 2006
+      (Thanks to Jonathan Rockway #24387)
+    - changed license to MIT license from Perl license
+    - removed an inappropriate nickname from KusumiKoharu.pm
+
 0.07  Mon Aug 28 2006
     - updated OgawaMakoto.pm for her graduation on Aug 27 2006
 

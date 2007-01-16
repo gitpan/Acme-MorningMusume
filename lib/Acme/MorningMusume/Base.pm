@@ -5,7 +5,7 @@ use warnings;
 use Date::Simple ();
 use base qw(Class::Accessor);
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 __PACKAGE__->mk_accessors(qw(
     name_ja
@@ -107,7 +107,8 @@ __END__
 
 =head1 NAME
 
-Acme::MorningMusume::Base - A baseclass of the class represents each member of Morning Musume
+Acme::MorningMusume::Base - A baseclass of the class represents each
+member of Morning Musume
 
 =head1 SYNOPSIS
 
@@ -148,7 +149,8 @@ Acme::MorningMusume::Base - A baseclass of the class represents each member of M
 
 =head1 DESCRIPTION
 
-Acme::MorningMusume::Base is a baseclass of the class represents each member of Morning Musume.
+Acme::MorningMusume::Base is a baseclass of the class represents each
+member of Morning Musume.
 
 =head1 METHODS
 
@@ -159,7 +161,9 @@ Acme::MorningMusume::Base is a baseclass of the class represents each member of 
   # %arg can be passed in the same as the WWW::Google::Image::search method
   my $images = $member->images(limit => 5);
 
-Performs a search for I<$member>'s name using Google, and returns a L<WWW::Google::Images::SearchResult> object. See the documentation of L<WWW::Google::Images> for details.
+Performs a search for I<$member>'s name using Google, and returns a
+L<WWW::Google::Images::SearchResult> object. See the documentation of
+L<WWW::Google::Images> for details.
 
 =back
 
@@ -205,13 +209,30 @@ Performs a search for I<$member>'s name using Google, and returns a L<WWW::Googl
 
 =head1 AUTHOR
 
-Kentaro Kuribayashi, E<lt>kentaro@cpan.orgE<gt>
+Kentaro Kuribayashi E<lt>kentaro@cpan.orgE<gt>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENSE (The MIT License)
 
-Copyright (C) 2005, 2006 by Kentaro Kuribayashi
+Copyright (c) 2005 - 2007, Kentaro Kuribayashi
+E<lt>kentaro@cpan.orgE<gt>
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 =cut

@@ -6,7 +6,7 @@ use warnings;
 use Carp  qw(croak);
 use Date::Simple ();
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 my @members = qw(
     FukudaAsuka
@@ -31,6 +31,7 @@ my @members = qw(
     MichishigeSayumi
     FujimotoMiki
     KusumiKoharu
+    MitsuiAika
 );
 
 my @date_joined = map { Date::Simple->new($_) } qw(
@@ -41,6 +42,7 @@ my @date_joined = map { Date::Simple->new($_) } qw(
     2001-08-26
     2003-01-19
     2005-05-01
+    2006-12-10
 );
 unshift @date_joined, undef;
 
@@ -119,7 +121,7 @@ sub _die {
 1;
 
 __END__
-q
+
 =head1 NAME
 
 Acme::MorningMusume - All about Japanese pop star "Morning Musume"
@@ -146,9 +148,12 @@ Acme::MorningMusume - All about Japanese pop star "Morning Musume"
 
 "Morning Musume" is one of highly famous Japanese pop stars.
 
-It consists of many pretty girls and has been known as a group which members change one after another so frequently that people can't completely tell who is who in the group.
+It consists of many pretty girls and has been known as a group which
+members change one after another so frequently that people can't
+completely tell who is who in the group.
 
-This module, Acme::MorningMusume, provides an easy method to catch up with Morning Musume.
+This module, Acme::MorningMusume, provides an easy method to catch up
+with Morning Musume.
 
 =head1 METHODS
 
@@ -174,7 +179,9 @@ Creates and returns a new Acme::MorningMusume object.
 
   my @members = $musume->members('active');
 
-Returns the members as a list of the L<Acme::MorningMusume::Base> based object represents each member. See also the documentation of L<Acme::MorningMusume::Base> for more details.
+Returns the members as a list of the L<Acme::MorningMusume::Base>
+based object represents each member. See also the documentation of
+L<Acme::MorningMusume::Base> for more details.
 
 =back
 
@@ -203,7 +210,9 @@ Returns the members sorted by the I<$type> field.
   # $type can be one of the same values above:
   my @selected_members = $musume->select('age', 18, '>=');
 
-Returns the members satisfy the given I<$type> condition. I<$operator> must be a one of '==', '>=', '<=', '>', and '<'. This method compares the given I<$type> to the member's one in the order below:
+Returns the members satisfy the given I<$type> condition. I<$operator>
+must be a one of '==', '>=', '<=', '>', and '<'. This method compares
+the given I<$type> to the member's one in the order below:
 
   $number $operator $member_value
 
@@ -227,13 +236,30 @@ L<http://en.wikipedia.org/wiki/Morning_Musume>
 
 =head1 AUTHOR
 
-Kentaro Kuribayashi, E<lt>kentaro@cpan.orgE<gt>
+Kentaro Kuribayashi E<lt>kentaro@cpan.orgE<gt>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENSE (The MIT License)
 
-Copyright (C) 2005, 2006 by Kentaro Kuribayashi
+Copyright (c) 2005 - 2007, Kentaro Kuribayashi
+E<lt>kentaro@cpan.orgE<gt>
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 =cut
