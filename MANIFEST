@@ -30,5 +30,7 @@ lib/Acme/MorningMusume/MichishigeSayumi.pm
 lib/Acme/MorningMusume/FujimotoMiki.pm
 lib/Acme/MorningMusume/KusumiKoharu.pm
 lib/Acme/MorningMusume/MitsuiAika.pm
+lib/Acme/MorningMusume/LiChun.pm
+lib/Acme/MorningMusume/QianLin.pm
 
 META.yml                                 Module meta-data (added by MakeMaker)

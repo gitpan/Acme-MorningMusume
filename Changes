@@ -1,5 +1,9 @@
 Revision history for Perl extension Acme::MorningMusume.
 
+0.09  Sat Apr 7 2007
+    - added LiChun.pm and QianLin.pm who joined into Morning Musume as foreign students on Mar 15 2007
+    - fixed Acme::MorningMusume::Base.pm which made an error by mistake
+
 0.08  Tue Jan 16 2007
     - added MitsuiAika.pm who joined into Morning Musume on Dec 10 2006
       (Thanks to Jonathan Rockway #24387)

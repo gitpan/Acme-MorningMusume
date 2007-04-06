@@ -5,7 +5,7 @@ use warnings;
 use Date::Simple ();
 use base qw(Class::Accessor);
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 __PACKAGE__->mk_accessors(qw(
     name_ja
@@ -47,7 +47,6 @@ sub _initialize {
     $self->{name_en} = $self->first_name_en.' '.$self->family_name_en;
     $self->{age}     = $self->_calculate_age;
     $self->{_ua}     = WWW::Google::Images::Ja->new(
-        undef,
         server => 'images.google.co.jp'
     );
 
@@ -69,7 +68,7 @@ sub _calculate_age {
     }
 }
 
-# wrapper for WWW::Google::Images to adjust a utf-8 encoded query
+# wrapper for WWW::Google::Images to support a utf-8 encoded query
 package WWW::Google::Images::Ja;
 
 use base qw(WWW::Google::Images);
