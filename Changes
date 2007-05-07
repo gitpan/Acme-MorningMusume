@@ -1,5 +1,8 @@
 Revision history for Perl extension Acme::MorningMusume.
 
+0.10  Mon May 7 2007
+    - updated along with that Hitomi Yoshizawa graduated from Morning Musume on May 6 2007.
+
 0.09  Sat Apr 7 2007
     - added LiChun.pm and QianLin.pm who joined into Morning Musume as foreign students on Mar 15 2007
     - fixed Acme::MorningMusume::Base.pm which made an error by mistake
