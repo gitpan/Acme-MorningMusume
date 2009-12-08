@@ -1,11 +1,15 @@
-use ExtUtils::MakeMaker;
+use inc::Module::Install;
 
-WriteMakefile(
-    NAME              => 'Acme::MorningMusume',
-    VERSION_FROM      => 'lib/Acme/MorningMusume.pm',
-    PREREQ_PM         => {
-        Class::Accessor     => 0,
-        Date::Simple        => 0,
-        WWW::Google::Images => '0.6.1',
-    },
-);
+name     'Acme-MorningMusume';
+author   'Kentaro Kuribayashi, <kentarok@cpan.org>';
+license  'MIT';
+all_from 'lib/Acme/MorningMusume.pm';
+
+requires 'Class::Accessor';
+requires 'Date::Simple';
+requires 'WWW::Google::Images';
+
+author_tests   'xt';
+auto_set_repository;
+auto_include_deps;
+WriteAll;

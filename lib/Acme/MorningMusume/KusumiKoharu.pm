@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Acme::MorningMusume::Base);
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub info {
     return (
@@ -19,7 +19,7 @@ sub info {
         hometown       => '新潟県',
         emoticon       => ['从б_бﾘ', 'ﾘo´ｩ｀ﾘ'],
         class          => 7,
-        graduate_date  => undef,
+        graduate_date  => Date::Simple->new('2009-12-06'),
     );
 }
 
