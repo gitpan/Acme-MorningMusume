@@ -1,7 +1,11 @@
 Revision history for Perl extension Acme::MorningMusume.
 
+0.13  Tue Aug 23 2011
+    - updated EriKamei.pm, LiChun.pm, and QianLin.pm for their graduation from Morning Musume at Dec 15 2010.
+    - added KanonSuzuki.pm, ErinaIkuta.pm, KanonSuzuki.pm, and MizukiFukumura.pm who joined into Morning Musume on Jan 2 2011. 
+
 0.12  Tue Dec 8 2009
-    - updated KusumiKoharu.pm for her graduation from Morning Musume at Dec 6 2009..
+    - updated KusumiKoharu.pm for her graduation from Morning Musume at Dec 6 2009.
 
 0.11  Fri Jun 1 2007
     - updated FujimotoMiki.pm because she resigned Morning Musume Jun 1 2007 to take responsibility for her scandal.
