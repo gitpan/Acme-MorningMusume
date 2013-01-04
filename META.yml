@@ -3,11 +3,12 @@ abstract: "All about Japanese pop star \"Morning Musume\""
 author:
   - 'Kentaro Kuribayashi, <kentarok@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 distribution_type: module
-generated_by: 'Module::Install version 1.00'
+dynamic_config: 1
+generated_by: 'Module::Install version 1.06'
 license: mit
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -23,5 +24,4 @@ requires:
   WWW::Google::Images: 0
 resources:
   license: http://opensource.org/licenses/mit-license.php
-  repository: git://github.com/kentaro/perl-acme-morningmusume.git
-version: 0.13
+version: 0.14
