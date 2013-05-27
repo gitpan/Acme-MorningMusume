@@ -24,4 +24,4 @@ requires:
   WWW::Google::Images: 0
 resources:
   license: http://opensource.org/licenses/mit-license.php
-version: 0.14
+version: 0.15
