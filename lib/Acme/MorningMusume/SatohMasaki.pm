@@ -5,7 +5,7 @@ use warnings;
 
 use base qw(Acme::MorningMusume::Base);
 
-our $VERSION = '0.01';
+our $VERSION = '0.16';
 
 sub info {
     return (
@@ -14,7 +14,7 @@ sub info {
         first_name_en  => 'Masaki',
         family_name_en => 'Satoh',
         nick           => [qw(まさき まーちゃん)],
-        birthday       => Date::Simple->new('1999-05-07'),
+        birthday       => $_[0]->_datetime_from_date('1999-05-07'),
         blood_type     => 'O',
         hometown       => '北海道',
         emoticon       => [''],
