@@ -11,6 +11,7 @@ lib/Acme/MorningMusume/FujimotoMiki.pm
 lib/Acme/MorningMusume/FukudaAsuka.pm
 lib/Acme/MorningMusume/FukumuraMizuki.pm
 lib/Acme/MorningMusume/GotohMaki.pm
+lib/Acme/MorningMusume/HagaAkane.pm
 lib/Acme/MorningMusume/IchiiSayaka.pm
 lib/Acme/MorningMusume/IidaKaori.pm
 lib/Acme/MorningMusume/IikuboHaruna.pm
@@ -24,11 +25,14 @@ lib/Acme/MorningMusume/KonnoAsami.pm
 lib/Acme/MorningMusume/KudohHaruka.pm
 lib/Acme/MorningMusume/KusumiKoharu.pm
 lib/Acme/MorningMusume/LiChun.pm
+lib/Acme/MorningMusume/MakinoMaria.pm
 lib/Acme/MorningMusume/MichishigeSayumi.pm
 lib/Acme/MorningMusume/MitsuiAika.pm
 lib/Acme/MorningMusume/NakazawaYuko.pm
 lib/Acme/MorningMusume/NiigakiRisa.pm
+lib/Acme/MorningMusume/NonakaMiki.pm
 lib/Acme/MorningMusume/OdaSakura.pm
+lib/Acme/MorningMusume/OgataHaruna.pm
 lib/Acme/MorningMusume/OgawaMakoto.pm
 lib/Acme/MorningMusume/QianLin.pm
 lib/Acme/MorningMusume/SatohMasaki.pm

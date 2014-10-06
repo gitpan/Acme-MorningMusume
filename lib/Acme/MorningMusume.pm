@@ -6,7 +6,7 @@ use warnings;
 use Carp  qw(croak);
 use DateTime;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 my @members = qw(
     FukudaAsuka
@@ -43,6 +43,10 @@ my @members = qw(
     SatohMasaki
     KudohHaruka
     OdaSakura
+    OgataHaruna
+    NonakaMiki
+    MakinoMaria
+    HagaAkane
 );
 
 my @date_joined = map {
@@ -64,6 +68,7 @@ my @date_joined = map {
     2011-01-02
     2011-09-29
     2012-09-14
+    2014-09-30
 );
 unshift @date_joined, undef;
 
